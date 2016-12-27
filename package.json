@@ -5,8 +5,7 @@
     "angular-cli": {},
     "scripts": {
         "ng": "ng",
-        "start": "concurrently \"node server\" \"ng serve\"",
-        "server": "node server.js",
+        "start": "node server.js",
         "start:dev": "ng serve",
         "lint": "tslint \"src/**/*.ts\"",
         "test": "ng test",
