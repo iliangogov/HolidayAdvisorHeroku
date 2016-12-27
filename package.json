@@ -35,9 +35,7 @@
         "passport-jwt": "^1.2.1",
         "rxjs": "^5.0.1",
         "ts-helpers": "^1.1.1",
-        "zone.js": "^0.7.2"
-    },
-    "devDependencies": {
+        "zone.js": "^0.7.2",
         "@angular/compiler-cli": "^2.3.1",
         "@types/jasmine": "2.5.38",
         "@types/node": "^6.0.42",
@@ -57,5 +55,8 @@
         "tslint": "^4.0.2",
         "typescript": "~2.0.3",
         "webdriver-manager": "10.2.5"
+    },
+    "devDependencies": {
+
     }
 }
