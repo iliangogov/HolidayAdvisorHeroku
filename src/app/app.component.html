@@ -1,0 +1,46 @@
+<!-- main app container -->
+<div class="wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" id="main-navigation">
+        <div class="container-fluid">
+            <ul class="nav nav-pills navbar-left" *ngIf="isLoggedIn">
+                <li class="active2">
+                    <img class="navbar-logo" width="50rem" src="../images/holidayLogo.png" alt="Logo" />
+                </li>
+                <li class="active2"><a [routerLink]="['/home']">Home</a></li>
+                <li class="active2"><a [routerLink]="['/places']">All places</a></li>
+                <li class="active2"><a [routerLink]="['/createplace']">Add place</a></li>
+            </ul>
+            <ul class="nav nav-pills navbar-left" *ngIf="isLoggedIn">
+                <li class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
+                <li class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
+            </ul>
+            <ul class="nav nav-pills navbar-right" *ngIf="!isLoggedIn">
+                <li class="active2"><a [routerLink]="['/login']">Login</a></li>
+                <li class="active2"><a [routerLink]="['/register']">Register</a></li>
+            </ul>
+            <ul class="nav nav-pills navbar-right" *ngIf="isLoggedIn">
+                <li class="active2"><a [routerLink]="['/profile']">Profile</a></li>
+                <li class="active2"><a [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <alert></alert>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+
+    <!-- credits -->
+    <footer class="navbar-fixed-bottom text-center">
+        <p>
+            Angular 2 SPA
+        </p>
+        <p>
+            Team "Directive 14"
+        </p>
+    </footer>
+</div>
