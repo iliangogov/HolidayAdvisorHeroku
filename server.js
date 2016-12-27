@@ -17,6 +17,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use(express.static(__dirname + "/dist"));
+
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
