@@ -65,7 +65,7 @@ apiRoutes.post('/partners', PartnersController.createPartner);
 
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
-
+app.use(express.static(__dirname + "/dist"));
 // Start the server
 app.listen(port);
 console.log('Server is running at: http://localhost:' + port);
