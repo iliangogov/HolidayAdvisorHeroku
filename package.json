@@ -9,7 +9,8 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "node server.js",
+        "start": "concurrently \"node server\" \"ng serve\"",
+        "server": "node server.js",
         "postinstall": "ng build"
     },
     "private": true,
