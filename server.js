@@ -10,6 +10,7 @@ const express = require('express'),
     jwt = require('jwt-simple');
 
 // Allow CORS
+app.use(express.static(__dirname + "/dist"));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -65,7 +66,6 @@ apiRoutes.post('/partners', PartnersController.createPartner);
 
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
-app.use(express.static(__dirname + "/dist"));
 // Start the server
 app.listen(port);
 console.log('Server is running at: http://localhost:' + port);
