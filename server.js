@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + "/dist"));
+app.use(express.static(__dirname + "/src"));
 
 // log to console
 app.use(morgan('dev'));
