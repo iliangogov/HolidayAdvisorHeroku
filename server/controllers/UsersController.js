@@ -11,9 +11,9 @@ function postRegister(req, res) {
 
     newUserData.salt = encryption.generateSalt();
     newUserData.hashPass = encryption.generateHashedPassword(newUserData.salt, newUserData.password);
-    users.create(newUserData, function (err, user) {
+    users.create(newUserData, function(err, user) {
         if (err) {
-            return res.status(409).json({ success: false, msg: { code: err.code, message: err.message }});
+            return res.status(409).json({ success: false, msg: { code: err.code, message: err.message } });
         } else {
             return postAuthenticate(req, res);
         }
@@ -23,7 +23,7 @@ function postRegister(req, res) {
 function postAuthenticate(req, res) {
     User.findOne({
         username: req.body.username
-    }, function (err, user) {
+    }, function(err, user) {
         if (err) {
             throw err;
         }
@@ -43,8 +43,9 @@ function postAuthenticate(req, res) {
         }
     });
 }
+
 function getAll(req, res) {
-    User.find({}, function (err, users) {
+    User.find({}, function(err, users) {
         if (err) {
             throw err;
         }
@@ -52,13 +53,54 @@ function getAll(req, res) {
         if (!users.length) {
             res.status(401).send({ err: 'No users.' });
         } else {
-                res.status(200).json(users);
+            res.status(200).json(users);
+        }
+    });
+}
+
+function getSingleUserData(req, res) {
+    let id = req.params.id;
+    User.findById(id, (err, user) => {
+        if (err) console.log(err);
+        if (!user) return res.json({ success: false, message: "User not found." });
+        return res.json({
+            success: true,
+            result: {
+                username: user.username,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                _id: user._id,
+                age: user.age,
+                gender: user.gender,
+                email: user.email,
+                about: user.about,
+                image: user.image,
+                rating: user.rating,
+                createdOn: user.createdOn
             }
+        });
+    });
+}
+
+function updateUserData(req, res) {
+    User.findById(req.body._id, function(err, u) {
+        if (!u)
+            throw Error('Could not load Document');
+        else {
+            u.firstName = req.body.firstName;
+            u.lastName = req.body.lastName;
+            u.image = req.body.image;
+            u.about = req.body.about;
+            u.email = req.body.email;
+            u.save().then(res.send(u));
+        }
     });
 }
 
 module.exports = {
     postRegister,
     postAuthenticate,
-    getAll
+    getAll,
+    getSingleUserData,
+    updateUserData
 };

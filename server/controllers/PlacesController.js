@@ -11,9 +11,29 @@ function getAll(req, res) {
         }
 
         if (!places.length) {
-            res.status(401).send({ err: 'No places.' });
+            res.status(401).send({
+                err: 'No places.'
+            });
         } else {
             res.status(200).json(places);
+        }
+    });
+}
+
+function getByName(req, res) {
+    Place.find({
+        name: req.params.name
+    }, function(err, places) {
+        if (err) {
+            throw err;
+        }
+
+        if (!places.length) {
+            res.status(401).send({
+                err: 'No places.'
+            });
+        } else {
+            res.status(200).json(places[0]);
         }
     });
 }
@@ -37,5 +57,6 @@ function updatePlace(req, res) {
 module.exports = {
     getAll,
     createPlace,
-    updatePlace
+    updatePlace,
+    getByName
 };

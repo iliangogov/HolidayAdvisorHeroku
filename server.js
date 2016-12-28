@@ -17,11 +17,10 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(express.static(__dirname + "/dist"));
-
 // get our request parameters
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + "/src"));
 
 // log to console
 app.use(morgan('dev'));
@@ -56,7 +55,10 @@ let PartnersController = require('./server/controllers/PartnersController');
 apiRoutes.post('/signup', usersController.postRegister);
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
 apiRoutes.get('/users', usersController.getAll);
+apiRoutes.get("/users/:id", usersController.getSingleUserData);
+apiRoutes.put("/users/:id", usersController.updateUserData);
 apiRoutes.get('/places', placesContproller.getAll);
+apiRoutes.get('/places/:name', placesContproller.getByName);
 apiRoutes.post('/places', placesContproller.createPlace);
 apiRoutes.put('/places', placesContproller.updatePlace);
 apiRoutes.get('/partners', PartnersController.getAll);

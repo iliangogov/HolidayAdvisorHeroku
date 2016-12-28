@@ -8,7 +8,19 @@ module.exports.init = function() {
         firstName: String,
         lastName: String,
         salt: String,
-        hashPass: String
+        hashPass: String,
+        age: { type: Number, default: 20 },
+        gender: { type: String, default: 'Female' },
+        email: {
+            type: String,
+            unique: true,
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
+            require: requiredMessage
+        },
+        about: { type: String, default: 'Write something about yourself' },
+        image: { type: String, default: 'http://tr3.cbsistatic.com/fly/bundles/techrepubliccore/images/icons/standard/icon-user-default.png' },
+        rating: { type: Number, default: 0 },
+        createdOn: { type: Date, default: Date.now() }
     });
 
     userSchema.method({

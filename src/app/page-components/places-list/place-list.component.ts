@@ -6,7 +6,8 @@ import { PlacesService } from '../../_services';
 import { StarRatingComponent } from '../star-rating';
 
 @Component({
-    templateUrl: './place-list.component.html'
+    templateUrl: './place-list.component.html',
+    styleUrls:  ['./place-list.component.css']
 })
 export class PlaceListComponent implements OnInit {
     ratingClicked: number;

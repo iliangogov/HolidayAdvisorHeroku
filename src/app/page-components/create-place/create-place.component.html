@@ -6,6 +6,10 @@
             <input type="text" class="form-control" name="img" #imgInput [(ngModel)]="place.img" />
             <label for="name">Place name</label>
             <input type="text" class="form-control" name="name" #nameInput [(ngModel)]="place.name" />
+            <label for="lat">(optional) Latitude</label>
+            <input type="text" class="form-control" name="lat" #latInput [(ngModel)]="place.lat" />
+            <label for="long">(optional) Longitude</label>
+            <input type="text" class="form-control" name="long" #longInput [(ngModel)]="place.lng" />
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Create!</button>
