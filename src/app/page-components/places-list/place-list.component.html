@@ -45,9 +45,7 @@
                     <app-star-rating [rating]='place.rating' [itemId]='place._id' (ratingClick)='ratingComponetClick($event)'></app-star-rating>
                 </td>
                 <td id="google-map">
-                    <div>
-                        <app-googlemap [lat]='place.lat' [lng]='place.lng'>View on map</app-googlemap>
-                    </div>
+                    <app-googlemap [lat]='place.lat' [lng]='place.lng'>View on map</app-googlemap>
                 </td>
             </tr>
         </tbody>

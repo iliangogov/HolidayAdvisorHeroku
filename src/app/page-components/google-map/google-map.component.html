@@ -1,3 +1,7 @@
-<sebm-google-map [latitude]="lat" [longitude]="lng">
-<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
-</sebm-google-map>
+
+<div [hidden]="!showMap">
+	<sebm-google-map  #myMap [latitude]="lat" [longitude]="lng">
+    <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+    </sebm-google-map>
+</div>
+<button (click)="showMap = true; myMap.triggerResize()">resize</button>

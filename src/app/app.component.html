@@ -6,28 +6,28 @@
                 <li class="active2">
                     <img class="navbar-logo" width="50rem" src="../images/holidayLogo.png" alt="Logo" />
                 </li>
-                <li appNavigationHover class="active2"><a [routerLink]="['/home']">Home</a></li>
-                <li appNavigationHover class="active2"><a [routerLink]="['/places']">All places</a></li>
-                <li appNavigationHover class="active2"><a [routerLink]="['/createplace']">Add place</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/home']">Home</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/places']">All places</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createplace']">Add place</a></li>
             </ul>
             <ul class="nav nav-pills navbar-left" *ngIf="isLoggedIn">
-                <li appNavigationHover class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
-                <li appNavigationHover class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
             </ul>
             <ul class="nav nav-pills navbar-right" *ngIf="!isLoggedIn">
-                <li appNavigationHover class="active2"><a [routerLink]="['/login']">Login</a></li>
-                <li appNavigationHover class="active2"><a [routerLink]="['/register']">Register</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/login']">Login</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/register']">Register</a></li>
             </ul>
             <ul class="nav nav-pills navbar-right" *ngIf="isLoggedIn">
                 <!-- dropdown with items that are not closing dropdown when you click on them -->
                 <div class="dropdown col-md-4" dropdown>
                     <button class="btn btn-primary" dropdown-open>Wellcome back<span class="caret"></span></button>
                     <ul class="dropdown-menu" dropdown-not-closable-zone>
-                        <li appNavigationHover class="active2"><a [routerLink]="['/profile']">Go To Profile</a></li>
-                        <li appNavigationHover class="active2"><a [routerLink]="['/places']">Go To Places</a></li>
+                        <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/profile']">Go To Profile</a></li>
+                        <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/places']">Go To Places</a></li>
                     </ul>
                 </div>
-                <li appNavigationHover class="active2 col-md-offset-4"><a [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2 col-md-offset-4"><a [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
             </ul>
         </div>
     </nav>
