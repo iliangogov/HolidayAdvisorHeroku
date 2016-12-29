@@ -9,7 +9,12 @@ export class UserService {
     constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get('https://holiday-advisor.herokuapp.com/api/users').map((response: Response) => response.json());
+        return this.http.get('http://localhost:3000/api/users').map((response: Response) => response.json());
+    }
+
+    getByUsername(username) {
+        return this.http.get('http://localhost:3000/api/users/'+ String(username))
+            .map((res: Response) => res.json())
     }
 
     // getById(id: number) {
@@ -17,12 +22,12 @@ export class UserService {
     // }
 
     create(user: User) {
-        return this.http.post('https://holiday-advisor.herokuapp.com/api/signup', user, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('http://localhost:3000/api/signup', user, this.jwt()).map((response: Response) => response.json());
     }
 
-    // update(user: User) {
-    //     return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
-    // }
+    update(user: User) {
+         return this.http.put('http://localhost:3000/api/users/' + user.username, user).map((response: Response) => response.json());
+    }
 
     // delete(id: number) {
     //     return this.http.delete('http://localhost:3000/api/users/' + id, this.jwt()).map((response: Response) => response.json());

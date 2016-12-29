@@ -25,7 +25,6 @@ export class PlaceListComponent implements OnInit {
     }
 
      SearchByTitle(value:any){
-       // console.log(value);
          let result=[].concat(this.places);
          return result.filter(p=>p.name.indexOf(value)>0); 
     }

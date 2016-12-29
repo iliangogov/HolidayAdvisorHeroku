@@ -23,7 +23,7 @@ export class PlaceSingleComponent {
                 // Récupération des valeurs de l'URL
                 this.routParams = params['name']; // --> Name must match wanted paramter
             });
-        console.log(this.routParams);
+            
         this.placesService.getByName(this.routParams)
             .subscribe(placeJson => this.place = placeJson);
     }

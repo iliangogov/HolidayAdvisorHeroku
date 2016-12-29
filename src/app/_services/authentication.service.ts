@@ -13,7 +13,7 @@ export class AuthenticationService {
         headers.append('content-type', 'application/json');
 
         return this.http.post(
-            'https://holiday-advisor.herokuapp.com/api/signup',
+            'http://localhost:3000/api/signup',
             JSON.stringify({ username: username, password: password }),
             { headers: headers })
             .map((response: Response) => {
@@ -31,7 +31,7 @@ export class AuthenticationService {
         headers.append('content-type', 'application/json');
 
         return this.http.post(
-            'https://holiday-advisor.herokuapp.com/authenticate',
+            'http://localhost:3000/api/authenticate',
             JSON.stringify({ username: username, password: password }),
             { headers: headers })
             .map((response: Response) => {

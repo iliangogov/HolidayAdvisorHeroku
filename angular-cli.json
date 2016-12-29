@@ -1,7 +1,7 @@
 {
     "project": {
-        "version": "1.0.0-beta.24",
-        "name": "tw-sample-project"
+        "version": "1.0.0-beta.22-1",
+        "name": "Directive 14"
     },
     "apps": [{
         "root": "src",
@@ -46,7 +46,7 @@
             "template": false
         },
         "spec": {
-            "class": true,
+            "class": false,
             "component": true,
             "directive": true,
             "module": false,

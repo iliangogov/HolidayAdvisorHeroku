@@ -1,15 +1,9 @@
-<h1> Hello, {{currentUser.username}} </h1>
+<h1>Profile Details</h1>
 
 <div class="row">
     <div class="content-left col-xs-6">
         <div class="image">
-            <img [src]="currentUser.image" alt="profile image" width="100%">
-        </div>
-        <br/>
-        <div class="content-left col-xs-12">
-            <a appNavigationHover [routerLink]="['/update']" class="btn btn-default col-xs-12">
-                <span>Update your info</span>
-            </a>
+            <img [src]="user.image" [alt]="user.username" width="100%">
         </div>
     </div>
     <div class="content-right col-xs-6">
@@ -20,7 +14,7 @@
                         <p>Username: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.username}}</p>
+                        <p>{{user.username}}</p>
                     </div>
                 </div>
             </li>
@@ -30,7 +24,7 @@
                         <p>Email: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.email}}</p>
+                        <p>{{user.email}}</p>
                     </div>
                 </div>
             </li>
@@ -40,7 +34,7 @@
                         <p>First Name: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.firstName}}</p>
+                        <p>{{firstName}}</p>
                     </div>
                 </div>
             </li>
@@ -50,7 +44,7 @@
                         <p>Last Name: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.lastName}}</p>
+                        <p>{{user.lastName}}</p>
                     </div>
                 </div>
             </li>
@@ -60,7 +54,7 @@
                         <p>Gender: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.gender}}</p>
+                        <p>{{user.gender}}</p>
                     </div>
                 </div>
             </li>
@@ -70,7 +64,7 @@
                         <p>Age: </p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.age}}</p>
+                        <p>{{user.age}}</p>
                     </div>
                 </div>
             </li>
@@ -80,7 +74,7 @@
                         <p>Member since:</p>
                     </div>
                     <div class="column-right col-xs-8 text-right">
-                        <p>{{currentUser.createdOn | date: 'dd/MM/yyyy'}}</p>
+                        <p>{{user.createdOn | date: 'dd/MM/yyyy'}}</p>
                     </div>
                 </div>
             </li>

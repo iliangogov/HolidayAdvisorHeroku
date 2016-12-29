@@ -11,6 +11,7 @@ import { routing } from './app.routing';
 import { AlertComponent, NavigationHoverDirective } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, PlacesService, PartnerService } from './_services';
+import { AboutComponent } from './page-components/about';
 import { HomeComponent } from './page-components/home';
 import { LoginComponent } from './page-components/login';
 import { RegisterComponent } from './page-components/register';
@@ -24,7 +25,10 @@ import { StarRatingComponent } from './page-components/star-rating/star-rating.c
 import { FilterPlaces, SortPlacesBy } from './_pipes';
 import { DropdownNotClosableZone, Dropdown, DropdownOpen } from './_directives/index';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import {GoogleMapComponent} from './page-components/google-map';
+import { GoogleMapComponent } from './page-components/google-map';
+import { UpdateProfileComponent } from './page-components/update-profile/update-profile.component';
+import { OtherPersonProfileComponent } from './page-components/other-person-profile/other-person-profile.component';
+import { UsersListComponent } from './page-components/users-list/users-list.component';
 
 @NgModule({
     imports: [
@@ -34,12 +38,13 @@ import {GoogleMapComponent} from './page-components/google-map';
         routing,
         CarouselModule.forRoot(),
         AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyBUNOpKQmGUbyUscx6cY9ElcEXLxws66ac'
+            apiKey: 'AIzaSyBUNOpKQmGUbyUscx6cY9ElcEXLxws66ac'
         })
     ],
     declarations: [
         AppComponent,
         AlertComponent,
+        AboutComponent,
         HomeComponent,
         LoginComponent,
         RegisterComponent,
@@ -56,7 +61,10 @@ import {GoogleMapComponent} from './page-components/google-map';
         Dropdown,
         DropdownNotClosableZone,
         DropdownOpen,
-        GoogleMapComponent
+        GoogleMapComponent,
+        UpdateProfileComponent,
+        OtherPersonProfileComponent,
+        UsersListComponent
     ],
     providers: [
         AuthGuard,
