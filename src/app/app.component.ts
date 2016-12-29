@@ -1,7 +1,7 @@
 import { Component, trigger, state, style,transition, animate, keyframes } from '@angular/core';
 import {AuthenticationService} from './_services/index';
 import { Router } from '@angular/router';
-import {DropdownModule} from "./_directives/index";
+
 
 
 @Component({
