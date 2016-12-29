@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <ul class="nav nav-pills navbar-left">
                 <li class="active2">
-                    <img class="navbar-logo" width="50rem" src="../images/holidayLogo.png" alt="Logo" />
+                    <img class="navbar-logo" width="50rem" src="../assets/images/holidayLogo.png" alt="Logo" />
                 </li>
                 <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/home']">Home</a></li>
                 <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/places']">All places</a></li>
@@ -48,12 +48,12 @@
             <div id="socialNetworks">
                 <span id="facebook">
                     <a href="https://www.facebook.com/HolidayPlaces-703916003107779/">
-                    <img src="./images/square-facebook-512.png" alt="">
+                    <img src="../asets/images/square-facebook-512.png" alt="">
                     </a>
                 </span>
                 <span id="instagram">
                     <a href="https://www.instagram.com/place6699/">
-                    <img src="./images/instagram.png" alt="">
+                    <img src="../asets/images/instagram.png" alt="">
                     </a>
                 </span>
             </div>
