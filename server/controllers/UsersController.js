@@ -82,33 +82,17 @@ function getSingleUserData(req, res) {
     });
 }
 
-function getByUsername(req, res) {
-    User.find({
-        username: req.params.username
-    }, function(err, users) {
-        if (err) {
-            throw err;
-        }
-
-        if (!users.length) {
-            res.status(401).send({
-                err: 'No users.'
-            });
-        } else {
-            res.status(200).json(users[0]);
-        }
-    });
-}
-
-function updateUser(req, res) {
-    User.find({ username: req.params.username }, function(err, u) {
-        if (!u.length)
+function updateUserData(req, res) {
+    User.findById(req.body._id, function(err, u) {
+        if (!u)
             throw Error('Could not load Document');
         else {
-            u[0].image = req.body.image;
-            u[0].about = req.body.about;
-            u[0].email = req.body.email;
-            u[0].save().then(res.send(u[0]));
+            u.firstName = req.body.firstName;
+            u.lastName = req.body.lastName;
+            u.image = req.body.image;
+            u.about = req.body.about;
+            u.email = req.body.email;
+            u.save().then(res.send(u));
         }
     });
 }
@@ -118,6 +102,5 @@ module.exports = {
     postAuthenticate,
     getAll,
     getSingleUserData,
-    updateUser,
-    getByUsername
+    updateUserData
 };

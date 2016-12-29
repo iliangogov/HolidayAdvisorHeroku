@@ -18,13 +18,8 @@ export class PlacesService {
             .map((res: Response) => res.json())
     }
 
-    updatePlace(place) {
-        return this.http.put(this.url, place)
-            .map((res: Response) => res.json())
-    }
-
-    getByName(placeName) {
-        return this.http.get(this.url +'/'+ placeName)
+    updatePlace(place){
+        return this.http.put(this.url,place)
             .map((res: Response) => res.json())
     }
 }

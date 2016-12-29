@@ -22,9 +22,7 @@ export class CreatePlaceComponent {
         this.place = {
             img: '',
             name: '',
-            rating: 1,
-            lat: 0,
-            lng :0
+            rating: 1
         }
     }
    

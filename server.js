@@ -29,9 +29,9 @@ app.use(morgan('dev'));
 app.use(passport.initialize());
 
 // demo Route (GET http://localhost:3000)
-app.get('/', function(req, res) {
-    res.send('Hello! The API is at http://localhost:' + port + '/api');
-});
+// app.get('/', function(req, res) {
+//     res.send('Hello! The API is at http://localhost:' + port + '/api');
+// });
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));

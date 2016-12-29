@@ -11,12 +11,10 @@ import { routing } from './app.routing';
 import { AlertComponent, NavigationHoverDirective } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { AlertService, AuthenticationService, UserService, PlacesService, PartnerService } from './_services';
-import { AboutComponent } from './page-components/about';
 import { HomeComponent } from './page-components/home';
 import { LoginComponent } from './page-components/login';
 import { RegisterComponent } from './page-components/register';
 import { PlaceListComponent } from './page-components/places-list';
-import { PlaceSingleComponent } from './page-components/place-single';
 import { PartnerListComponent } from './page-components/partners-list';
 import { CreatePlaceComponent } from './page-components/create-place';
 import { CreatePartnerComponent } from './page-components/create-partner';
@@ -24,11 +22,6 @@ import { ProfileComponent } from './page-components/profile';
 import { StarRatingComponent } from './page-components/star-rating/star-rating.component';
 import { FilterPlaces, SortPlacesBy } from './_pipes';
 
-import { AgmCoreModule } from 'angular2-google-maps/core';
-import { GoogleMapComponent } from './page-components/google-map';
-import { UpdateProfileComponent } from './page-components/update-profile/update-profile.component';
-import { OtherPersonProfileComponent } from './page-components/other-person-profile/other-person-profile.component';
-import { UsersListComponent } from './page-components/users-list/users-list.component';
 
 @NgModule({
     imports: [
@@ -36,20 +29,15 @@ import { UsersListComponent } from './page-components/users-list/users-list.comp
         FormsModule,
         HttpModule,
         routing,
-        CarouselModule.forRoot(),
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyBUNOpKQmGUbyUscx6cY9ElcEXLxws66ac'
-        })
+        CarouselModule.forRoot()
     ],
     declarations: [
         AppComponent,
         AlertComponent,
-        AboutComponent,
         HomeComponent,
         LoginComponent,
         RegisterComponent,
         PlaceListComponent,
-        PlaceSingleComponent,
         CreatePlaceComponent,
         CreatePartnerComponent,
         PartnerListComponent,
@@ -57,12 +45,7 @@ import { UsersListComponent } from './page-components/users-list/users-list.comp
         ProfileComponent,
         FilterPlaces,
         SortPlacesBy,
-        NavigationHoverDirective,
-       
-        GoogleMapComponent,
-        UpdateProfileComponent,
-        OtherPersonProfileComponent,
-        UsersListComponent
+        NavigationHoverDirective
     ],
     providers: [
         AuthGuard,
