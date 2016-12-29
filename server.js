@@ -32,9 +32,9 @@ app.use(passport.initialize());
 // app.get('/', function(req, res) {
 //     res.send('Hello! The API is at http://localhost:' + port + '/api');
 // });
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+// app.get('/*', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/dist/index.html'));
+// });
 
 // connect to database
 mongoose.connect(config.database);
