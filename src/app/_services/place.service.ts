@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PlacesService {
-    private url: string = 'http://localhost:3000/api/places';
+    private url: string = 'https://holiday-advisor.herokuapp.com/api/places';
 
     constructor(private http: Http) { }
 
