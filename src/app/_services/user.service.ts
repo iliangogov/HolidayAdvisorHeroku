@@ -12,6 +12,11 @@ export class UserService {
         return this.http.get('http://localhost:3000/api/users').map((response: Response) => response.json());
     }
 
+    getByUsername(username) {
+        return this.http.get('http://localhost:3000/api/users/'+ String(username))
+            .map((res: Response) => res.json())
+    }
+
     // getById(id: number) {
     //     return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     // }
@@ -20,9 +25,9 @@ export class UserService {
         return this.http.post('http://localhost:3000/api/signup', user, this.jwt()).map((response: Response) => response.json());
     }
 
-    // update(user: User) {
-    //     return this.http.put('/api/users/' + user.id, user, this.jwt()).map((response: Response) => response.json());
-    // }
+    update(user: User) {
+         return this.http.put('http://localhost:3000/api/users/' + user.username, user).map((response: Response) => response.json());
+    }
 
     // delete(id: number) {
     //     return this.http.delete('http://localhost:3000/api/users/' + id, this.jwt()).map((response: Response) => response.json());

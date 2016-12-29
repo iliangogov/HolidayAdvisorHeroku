@@ -6,7 +6,8 @@ import { PlacesService } from '../../_services';
 import { StarRatingComponent } from '../star-rating';
 
 @Component({
-    templateUrl: './place-list.component.html'
+    templateUrl: './place-list.component.html',
+    styleUrls:  ['./place-list.component.css']
 })
 export class PlaceListComponent implements OnInit {
     ratingClicked: number;
@@ -24,7 +25,6 @@ export class PlaceListComponent implements OnInit {
     }
 
      SearchByTitle(value:any){
-       // console.log(value);
          let result=[].concat(this.places);
          return result.filter(p=>p.name.indexOf(value)>0); 
     }

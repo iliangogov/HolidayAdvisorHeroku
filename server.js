@@ -32,7 +32,6 @@ app.use(passport.initialize());
 // app.get('/', function(req, res) {
 //     res.send('Hello! The API is at http://localhost:' + port + '/api');
 // });
-
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/index.html'));
 });
@@ -59,8 +58,8 @@ let PartnersController = require('./server/controllers/PartnersController');
 apiRoutes.post('/signup', usersController.postRegister);
 apiRoutes.post('/authenticate', usersController.postAuthenticate);
 apiRoutes.get('/users', usersController.getAll);
-apiRoutes.get("/users/:id", usersController.getSingleUserData);
-apiRoutes.put("/users/:id", usersController.updateUserData);
+apiRoutes.get('/users/:username', usersController.getByUsername);
+apiRoutes.put('/users/:username', usersController.updateUser);
 apiRoutes.get('/places', placesContproller.getAll);
 apiRoutes.get('/places/:name', placesContproller.getByName);
 apiRoutes.post('/places', placesContproller.createPlace);
@@ -70,6 +69,7 @@ apiRoutes.post('/partners', PartnersController.createPartner);
 
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
+
 // Start the server
 app.listen(port);
 console.log('Server is running at: http://localhost:' + port);

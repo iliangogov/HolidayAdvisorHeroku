@@ -21,7 +21,7 @@
 </form>
 <br/>
 <div class="table-responsive">
-    <table class="table">
+    <table id="places-container" class="table">
         <tbody>
             <tr>
                 <td>
@@ -39,10 +39,13 @@
                     <img [src]="place.img" width="200rem" [alt]="place.name">
                 </td>
                 <td>
-                    <a [routerLink]="['/places/place.name']">{{place.name}}</a>
+                    <a [routerLink]="['/places', place.name]">{{place.name}}</a>
                 </td>
                 <td>
                     <app-star-rating [rating]='place.rating' [itemId]='place._id' (ratingClick)='ratingComponetClick($event)'></app-star-rating>
+                </td>
+                <td id="google-map">
+                    <app-googlemap [lat]='place.lat' [lng]='place.lng'>View on map</app-googlemap>
                 </td>
             </tr>
         </tbody>
