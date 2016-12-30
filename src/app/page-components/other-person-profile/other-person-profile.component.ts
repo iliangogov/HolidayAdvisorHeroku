@@ -4,15 +4,28 @@ import { User } from '../../_models';
 import { UserService } from '../../_services';
 
 @Component({
-  templateUrl: './other-person-profile.component.html'
+    templateUrl: './other-person-profile.component.html'
 })
-export class OtherPersonProfileComponent{
- @Input() user: User;
+export class OtherPersonProfileComponent {
+    @Input() user: User;
     routParams: any;
     mode: string;
 
     constructor(private route: ActivatedRoute, private usersService: UserService) {
-        this.user = new User;
+        this.user = {
+            id :0,
+            username: '',
+            password: '',
+            firstName: '',
+            lastName: '',
+            age: 0,
+            gender: '',
+            email: '',
+            about: '',
+            image: '',
+            rating: '',
+            createdOn: new Date()
+        }
     }
 
     ngOnInit() {
@@ -22,7 +35,7 @@ export class OtherPersonProfileComponent{
                 this.routParams = params['username'];
             });
         this.usersService.getByUsername(this.routParams)
-            .subscribe(userJson => this.user = userJson);
+            .subscribe(userJson => { this.user = new User; this.user = userJson });
     }
 
     get img(): string {
