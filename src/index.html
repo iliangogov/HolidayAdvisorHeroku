@@ -21,10 +21,18 @@
     <script>
         snowStorm.excludeMobile = false;
     </script>
+    <style>
+        #loading {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
 </head>
 
 <body>
-    <app-root>Loading...</app-root>
+    <app-root><img id="loading" src="/assets/images/balls.gif" alt="Please wait..." width="50px" /></app-root>
 </body>
 
 </html>
