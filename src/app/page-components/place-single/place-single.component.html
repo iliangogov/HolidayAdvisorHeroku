@@ -10,6 +10,7 @@
         <img [src]="place.img" [alt]="place.name" width="300px" max-height="200px">
     </p>
     <p style="text-align:left">Additional information:</p>
+    <button class="btn btn-danger" (click)='deleatePlace()'>Delete</button>
     <p style="text-align:left">See location on the map:</p>
     <app-googlemap [lat]='place.lat' [lng]='place.lng'>View on map</app-googlemap>
 </div>

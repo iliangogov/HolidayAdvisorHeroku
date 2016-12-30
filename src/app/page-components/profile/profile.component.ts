@@ -7,7 +7,7 @@ import { UserService } from '../../_services';
     templateUrl: './profile.component.html'
 })
 export class ProfileComponent implements OnInit{
-    @Input() currentUser: User = new User;
+    @Input() currentUser: User = JSON.parse(localStorage.getItem('currentUser')).user;
      storageUser: User;
 
     constructor(private userService: UserService) {

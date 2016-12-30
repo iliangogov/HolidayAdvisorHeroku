@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Place } from '../../_models';
 import { PlacesService } from '../../_services';
 
@@ -11,7 +11,10 @@ export class PlaceSingleComponent {
     routParams: any;
     mode: string;
 
-    constructor(private route: ActivatedRoute, private placesService: PlacesService) {
+    constructor(
+        private route: ActivatedRoute,
+        private placesService: PlacesService,
+        private router: Router) {
         this.place = new Place;
     }
 
@@ -23,7 +26,7 @@ export class PlaceSingleComponent {
                 // Récupération des valeurs de l'URL
                 this.routParams = params['name']; // --> Name must match wanted paramter
             });
-            
+
         this.placesService.getByName(this.routParams)
             .subscribe(placeJson => this.place = placeJson);
     }
@@ -38,5 +41,14 @@ export class PlaceSingleComponent {
 
     get rating(): number {
         return this.place.rating;
+    }
+
+    deleatePlace() {
+        this.placesService.deleatePlace(this.place.name)
+            .subscribe(placeJson => {
+                this.place = placeJson;
+                this.router.navigate(['/places']);
+            })
+
     }
 }

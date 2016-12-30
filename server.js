@@ -62,6 +62,7 @@ apiRoutes.get('/users/:username', usersController.getByUsername);
 apiRoutes.put('/users/:username', usersController.updateUser);
 apiRoutes.get('/places', placesContproller.getAll);
 apiRoutes.get('/places/:name', placesContproller.getByName);
+apiRoutes.delete('/places/:name', placesContproller.deleatePlace);
 apiRoutes.post('/places', placesContproller.createPlace);
 apiRoutes.put('/places', placesContproller.updatePlace);
 apiRoutes.get('/partners', PartnersController.getAll);

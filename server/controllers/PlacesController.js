@@ -54,9 +54,14 @@ function updatePlace(req, res) {
     });
 }
 
+function deleatePlace(req, res) {
+    Place.findOneAndRemove({ name: req.params.name }).then(res.send({}));
+}
+
 module.exports = {
     getAll,
     createPlace,
     updatePlace,
-    getByName
+    getByName,
+    deleatePlace
 };

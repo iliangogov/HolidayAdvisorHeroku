@@ -29,10 +29,12 @@ export class LoginComponent implements OnInit {
             data => {
                 this.alertService.success(`User ${this.model.username} logged in successful!`, true)
                 this.router.navigate(['/home']);
+                this.alertService.clear(3000);
             },
             error => {
                 let message = JSON.parse(error._body);
                 this.alertService.error(message.err, true);
+                this.alertService.clear(3000);
                 this.loading = false;
             });
     }

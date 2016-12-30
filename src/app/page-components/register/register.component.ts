@@ -23,10 +23,12 @@ export class RegisterComponent {
                 data => {
                     this.alertService.success('Registration successful', true);
                     this.router.navigate(['/login']);
+                    this.alertService.clear(3000);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.alertService.error(`Username ${this.model.username} already exist`, false);
                     this.loading = false;
+                    this.alertService.clear(3000);
                 });
     }
 }

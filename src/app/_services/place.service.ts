@@ -23,6 +23,11 @@ export class PlacesService {
             .map((res: Response) => res.json())
     }
 
+    deleatePlace(placeName) {
+        return this.http.delete(this.url + '/' + placeName)
+            .map((res: Response) => res.json())
+    }
+
     getByName(placeName) {
         return this.http.get(this.url +'/'+ placeName)
             .map((res: Response) => res.json())

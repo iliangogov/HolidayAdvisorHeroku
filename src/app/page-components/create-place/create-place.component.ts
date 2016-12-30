@@ -34,6 +34,7 @@ export class CreatePlaceComponent {
             data => {
                 this.alertService.success(`${this.place.name} added successful to places gallery`, true);
                 this.router.navigate(['/places']);
+                this.alertService.clear(3000);
             },
             error => {
                 this.alertService.error(error);

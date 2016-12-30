@@ -32,6 +32,7 @@ export class CreatePartnerComponent {
             data => {
                 this.alertService.success(`${this.partner.name} added successful to partners list`, true);
                 this.router.navigate(['/']);
+                this.alertService.clear(3000);
             },
             error => {
                 this.alertService.error(error);
