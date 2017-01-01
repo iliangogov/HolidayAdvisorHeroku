@@ -1,5 +1,11 @@
-<h3>Live Travel Journals, Diaries and Photos from real Travellers: </h3>
-
-<div class="single-feed">
-    <app-feed-single *ngFor="let feed of feeds" [feed]="feed"></app-feed-single>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="page-header">
+                Travel Journals, Diaries and Recommendations
+                <small>from real Travellers</small>
+            </h1>
+            <app-feed-single *ngFor="let feed of feeds" [feed]="feed"></app-feed-single>
+        </div>
+    </div>
 </div>

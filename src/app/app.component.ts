@@ -25,6 +25,10 @@ export class AppComponent {
     return this.authService.isLoggedIn();
   }
 
+  get currentUser(){
+    return JSON.parse(localStorage.getItem('currentUser')).user;
+  }
+
   logout(){
     this.authService.logout();
     this.router.navigate(['/login']);
