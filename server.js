@@ -67,6 +67,17 @@ apiRoutes.post('/partners', PartnersController.createPartner);
 
 // connect the api routes under /api/*
 app.use('/api', apiRoutes);
+app
+    .get('/', function(req, res) {
+        res
+            .status(200)
+            .sendFile(path.join(__dirname, '/dist/index.html'));
+    })
+    .get('*', function(req, res) {
+        res
+            .status(200)
+            .sendFile(path.join(__dirname, '/dist/index.html'));
+    });
 
 // Start the server
 app.listen(port);
