@@ -29,12 +29,9 @@ app.use(morgan('dev'));
 app.use(passport.initialize());
 
 // demo Route (GET http://localhost:3000)
-// app.get('/', function(req, res) {
-//     res.send('Hello! The API is at http://localhost:' + port + '/api');
-// });
-// app.get('/*', function(req, res) {
-//     res.sendFile(path.join(__dirname + '/dist/index.html'));
-// });
+app.get('/', function(req, res) {
+    res.send('Hello! The API is at http://localhost:' + port + '/api');
+});
 
 // connect to database
 mongoose.connect(config.database);
@@ -62,9 +59,9 @@ apiRoutes.get('/users/:username', usersController.getByUsername);
 apiRoutes.put('/users/:username', usersController.updateUser);
 apiRoutes.get('/places', placesContproller.getAll);
 apiRoutes.get('/places/:name', placesContproller.getByName);
-apiRoutes.delete('/places/:name', placesContproller.deleatePlace);
 apiRoutes.post('/places', placesContproller.createPlace);
 apiRoutes.put('/places', placesContproller.updatePlace);
+apiRoutes.delete('/places/:name', placesContproller.deleatePlace);
 apiRoutes.get('/partners', PartnersController.getAll);
 apiRoutes.post('/partners', PartnersController.createPartner);
 

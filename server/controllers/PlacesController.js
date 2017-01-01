@@ -49,6 +49,7 @@ function updatePlace(req, res) {
             throw Error('Could not load Document');
         else {
             p.rating = req.body.rating;
+            p.info = req.body.info;
             p.save().then(res.send(p));
         }
     });

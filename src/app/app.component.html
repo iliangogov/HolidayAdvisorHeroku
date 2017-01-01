@@ -13,6 +13,7 @@
             <ul class="nav nav-pills navbar-left">
                 <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
                 <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
+                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/feed']">Travel Posts</a></li>
             </ul>
             <ul class="nav nav-pills navbar-right" *ngIf="!isLoggedIn">
                 <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/about']">About</a></li>

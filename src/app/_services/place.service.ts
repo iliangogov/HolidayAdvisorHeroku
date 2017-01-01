@@ -29,7 +29,7 @@ export class PlacesService {
     }
 
     getByName(placeName) {
-        return this.http.get(this.url +'/'+ placeName)
+        return this.http.get(this.url + '/' + placeName)
             .map((res: Response) => res.json())
     }
 }

@@ -20,6 +20,8 @@ export class CreatePlaceComponent {
         private placeService: PlacesService
     ) {
         this.place = {
+            owner: JSON.parse(localStorage.getItem('currentUser')).user.username,
+            info:'',
             img: '',
             name: '',
             rating: 1,

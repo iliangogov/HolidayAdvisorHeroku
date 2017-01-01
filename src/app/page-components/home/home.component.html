@@ -4,7 +4,7 @@
 </p>
 <carousel id="myCarousel" [interval]="myInterval" [noWrap]="noWrapSlides">
     <slide class="carousel slide" style="height:380px; margin: 0 auto" *ngFor="let slidez of places; let index=index" [active]="slidez.active">
-        <img [src]="slidez.img" width="1120px">
+        <img [src]="slidez.img" width="1130px" style="max-height:380px">
 
         <div class="carousel-caption">
             <h3>{{slidez.name}}</h3>

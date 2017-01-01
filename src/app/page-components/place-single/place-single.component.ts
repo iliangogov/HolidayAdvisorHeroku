@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Place } from '../../_models';
-import { PlacesService } from '../../_services';
+import { PlacesService, AlertService } from '../../_services';
 
 @Component({
     templateUrl: './place-single.component.html'
@@ -14,8 +14,17 @@ export class PlaceSingleComponent {
     constructor(
         private route: ActivatedRoute,
         private placesService: PlacesService,
-        private router: Router) {
-        this.place = new Place;
+        private router: Router,
+        private alertService: AlertService) {
+        this.place = {
+            owner: '',
+            info: '',
+            img: '',
+            name: '',
+            rating: 1,
+            lat: 0,
+            lng: 0
+        }
     }
 
     ngOnInit() {
@@ -31,6 +40,17 @@ export class PlaceSingleComponent {
             .subscribe(placeJson => this.place = placeJson);
     }
 
+    onSubmit() {
+        this.placesService.updatePlace(this.place)
+            .subscribe(
+            data => {
+                this.place = data;
+                this.alertService.success(`${this.place.name} info updated successful`, true);
+                this.router.navigate([`/places/${this.place.name}`]);
+                this.alertService.clear(3000);
+            })
+    }
+
     get img(): string {
         return this.place.img;
     }
@@ -41,6 +61,14 @@ export class PlaceSingleComponent {
 
     get rating(): number {
         return this.place.rating;
+    }
+
+    get isOwner(): boolean {
+        if (JSON.parse(localStorage.getItem('currentUser')).user.username === this.place.owner) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     deleatePlace() {
