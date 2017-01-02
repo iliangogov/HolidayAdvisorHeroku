@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, trigger, transition, animate, state, style } from '@angular/core';
 import { User } from '../../_models';
 import { UserService } from '../../_services';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     styleUrls: ['./profile.component.css'],
@@ -24,11 +25,20 @@ export class ProfileComponent implements OnInit{
     @Input() currentUser: User = this.userService.getCurrentUser();
      storageUser: User;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
         this.storageUser=new User;
     }
     ngOnInit() {
         let storageUserUsername = this.userService.getCurrentUser().username;
         this.userService.getByUsername(storageUserUsername).subscribe(dbUser => this.currentUser = dbUser);
+    }
+
+     deleteUser() {
+       let storageUserUsername = this.userService.getCurrentUser().username;
+        this.userService.deleteUser(storageUserUsername)
+            .subscribe(dbUser => {
+                this.currentUser = dbUser;
+                this.router.navigate(['/register']);
+            })
     }
 }

@@ -113,11 +113,16 @@ function updateUser(req, res) {
     });
 }
 
+function deleteUser(req, res) {
+    User.findOneAndRemove({ username: req.params.username }).then(res.send({}));
+}
+
 module.exports = {
     postRegister,
     postAuthenticate,
     getAll,
     getSingleUserData,
     updateUser,
-    getByUsername
+    getByUsername,
+    deleteUser
 };

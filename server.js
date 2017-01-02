@@ -53,6 +53,7 @@ apiRoutes.post('/authenticate', usersController.postAuthenticate);
 apiRoutes.get('/users', usersController.getAll);
 apiRoutes.get('/users/:username', usersController.getByUsername);
 apiRoutes.put('/users/:username', usersController.updateUser);
+apiRoutes.delete('/users/:username', usersController.deleteUser);
 apiRoutes.get('/places', placesContproller.getAll);
 apiRoutes.get('/places/:name', placesContproller.getByName);
 apiRoutes.post('/places', placesContproller.createPlace);

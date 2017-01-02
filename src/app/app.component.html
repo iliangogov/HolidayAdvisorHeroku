@@ -1,41 +1,52 @@
 <!-- main app container -->
 <div class="wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top" id="main-navigation">
+    <nav class="navbar navbar-default" id="main-navigation">
         <div class="container-fluid">
-            <ul class="nav nav-pills navbar-left">
-                <li class="active2">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="active2">
                     <img class="navbar-logo" width="50rem" src="../assets/images/holidayLogo.png" alt="Logo" />
-                </li>
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/home']">Home</a></li>
-                <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/places']">All places</a></li>
-                <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createplace']">Add place</a></li>
-            </ul>
-            <ul class="nav nav-pills navbar-left">
-                <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/feed']">Travel Posts</a></li>
-            </ul>
-            <ul class="nav nav-pills navbar-right" *ngIf="!isLoggedIn">
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/about']">About</a></li>
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/login']">Login</a></li>
-                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/register']">Register</a></li>
-            </ul>
-            <ul class="nav nav-pills navbar-right" *ngIf="isLoggedIn">
-                <li [@movePanel]='state' class="active2">
-                    <img class="img-circle img-responsive header-profile-picture" width="40rem" [src]='currentUser.image'>
-                </li>
-                <!-- dropdown with items that are not closing dropdown when you click on them -->
-                <li [@movePanel]='state' class="active2">
-                    <div class="dropdown col-md-4" dropdown>
-                        <button class="btn btn-primary" dropdown-open>{{currentUser.username}}<span class="caret"></span></button>
-                        <ul class="dropdown-menu" dropdown-not-closable-zone>
-                            <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/profile']">Profile</a></li>
-                            <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/users']">Users</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li [@movePanel]='state' appNavigationHover class="active2 col-md-offset-4"><a [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
-            </ul>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav nav-pills navbar-left">
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/home']">Home</a></li>
+                    <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/places']">All places</a></li>
+                    <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createplace']">Add place</a></li>
+                </ul>
+                <ul class="nav nav-pills navbar-left">
+                    <li *ngIf="isLoggedIn" [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/createPartner']">Create partner</a></li>
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/partners']">View our partners</a></li>
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/feed']">Travel Posts</a></li>
+                </ul>
+                <ul class="nav nav-pills navbar-right" *ngIf="!isLoggedIn">
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/about']">About</a></li>
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/login']">Login</a></li>
+                    <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/register']">Register</a></li>
+                </ul>
+                <ul class="nav nav-pills navbar-right" *ngIf="isLoggedIn">
+                    <li [@movePanel]='state' class="active2">
+                        <img class="img-circle img-responsive header-profile-picture" width="40rem" [src]='currentUser.image'>
+                    </li>
+                    <!-- dropdown with items that are not closing dropdown when you click on them -->
+                    <li [@movePanel]='state' class="active2">
+                        <div class="dropdown col-md-4" dropdown>
+                            <button class="btn btn-primary" dropdown-open>{{currentUser.username}}<span class="caret"></span></button>
+                            <ul class="dropdown-menu" dropdown-not-closable-zone>
+                                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/profile']">Profile</a></li>
+                                <li [@movePanel]='state' appNavigationHover class="active2"><a [routerLink]="['/users']">Users</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li [@movePanel]='state' appNavigationHover class="active2 col-md-offset-4"><a [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
     </nav>
 
@@ -54,12 +65,12 @@
             <div id="socialNetworks">
                 <span id="facebook">
                     <a href="https://www.facebook.com/HolidayPlaces-703916003107779/">
-                    <img src="../assets/images/square-facebook-512.png" alt="">
+                    <img src="./assets/images/square-facebook-512.png" alt="">
                     </a>
                 </span>
                 <span id="instagram">
                     <a href="https://www.instagram.com/place6699/">
-                    <img src="../assets/images/instagram.png" alt="">
+                    <img src="./assets/images/instagram.png" alt="">
                     </a>
                 </span>
             </div>

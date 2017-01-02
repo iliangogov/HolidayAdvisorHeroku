@@ -29,6 +29,11 @@ export class UserService {
         return JSON.parse(localStorage.getItem('currentUser')).user;
     }
 
+    deleteUser(username) {
+        return this.http.delete('https://holiday-advisor.herokuapp.com/api/users/' + username)
+            .map((res: Response) => res.json())
+    }
+
     private jwt() {
         // create authorization header with jwt token
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
