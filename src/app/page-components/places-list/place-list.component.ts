@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, transition, state, trigger, style, animate } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Place } from '../../_models';
@@ -7,7 +7,7 @@ import { StarRatingComponent } from '../star-rating';
 
 @Component({
     templateUrl: './place-list.component.html',
-    styleUrls:  ['./place-list.component.css'],
+    styleUrls:  ['./place-list.component.css']
 })
 export class PlaceListComponent implements OnInit {
     ratingClicked: number;
