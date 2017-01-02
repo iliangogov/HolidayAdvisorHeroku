@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
     myInterval: number = 3000;
 
     constructor(private userService: UserService, private placeService: PlacesService) {
-         this.currentUser = this.userService.getCurrentUser();
     }
 
     ngOnInit() {
