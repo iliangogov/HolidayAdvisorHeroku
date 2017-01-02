@@ -16,16 +16,14 @@
             </tr>
             <tr *ngFor="let user of users">
                 <td *ngIf="user" class="hidden-logged-user">
-                    <img [src]="user.image" width="200rem" [alt]="user.username">
+                    <img [src]="user.image" width="200rem" [alt]="user.username" class="img-rounded">
                 </td>
                 <td *ngIf="user" class="hidden-logged-user">
                     {{user.username}}
                 </td>
                 <td *ngIf="user" class="hidden-logged-user">
                     <div class="content-left col-xs-6">
-                        <a appNavigationHover [routerLink]="['/profile', user.username]" class="btn btn-default col-xs-12">
-                            <span>Go to profile</span>
-                        </a>
+                        <a class="btn btn-primary col-xs-12" [routerLink]="['/profile', user.username]">View profile <span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
                 </td>
             </tr>
